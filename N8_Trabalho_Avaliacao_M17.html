@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Stricke the Evil Souls</title>
+	<script type = "text/javascript" src = "jquery.3.3.1.js"> </script>	
+	<script> 
+	$(document).ready(function()
+	{	
+		//comentários não estavam a funcionar no body então eu criei <p> que estarão sempre escondidos que servem como comentários
+		$("#coment1").hide();
+		$("#coment2").hide();
+		
+		//vai mudar a cor de fundo da celula com id "title"
+		$("#title").css("background-color","#ff9933");
+		
+		//vai esconder os <p> com os ids "dark_chat1" e "dark_chat2"
+		$("#dark_chat1").hide();
+		$("#dark_chat2").hide();
+		
+		//vai mudar a cor de fundo da celula com id "tr_title"		
+		$("#tr_title").css("background-color", "#7cf7f1");
+		
+		//vai esconder a div com o id "diversity"
+		$("#diversity").hide();
+		
+		//vai juntar as 3 primeiras celulas da tabela "skill tree"
+		$("#td_title").attr("colspan", "3");
+		
+		//tabela do titulo do jogo
+		$('#tabela2').css('border-bottom-left-radius', '25px');
+		$('#tabela2').css('border-bottom-right-radius', '25px');		
+		//vai procurar por "td" entre todos os descendentes dentro da table com o id "tabela2"
+		$('#tabela2').find("td").css('border-bottom-left-radius', '25px');
+		$('#tabela2').find("td").css('border-bottom-right-radius', '25px');
+		
+		//tabela "skill tree"		
+		$('#td_title').css('border-top-left-radius', '25px');
+		$('#td_title').css('border-top-right-radius', '25px');
+		//vai procurar pela tag "table" entre todos os parentes da celula com o id "td_title"
+		$('#td_title').parents("table").css('border-top-left-radius', '25px');
+		$('#td_title').parents("table").css('border-top-right-radius', '25px');
+		
+		//acrescenta um paragrafo com informação do jogo
+		$("#td_add").prepend("<p> Stricke the Evil Souls haves a great diversity of play styles from a potions spam alchemist to a raging swordsman slashing hover any enemy, but you might be thinking how is this all group together?</p><BR>");
+		
+		//quando clicar no ecrâ vai fazer:
+		$(this).click(function(event)
+		{
+			$("#diversity").show();	
+			$("#instructions").hide();
+		});
+		
+		//easter egg do jogo
+		var shadow_chat = 1;
+		$("#btn1").mouseenter(function()
+		{
+			shadow_chat = shadow_chat + 1;
+			$(document).ready(function()
+			{
+				$("body").animate({opacity: '0.5'}); //vai tornar tudo mais claro
+				setTimeout(myFunction5, 500); //passado 1/2 segundo faz a função				
+			});
+			
+			//quando passar por cima do butão um numero especifico de vezes vai mostrar uma conversa entre a personagem principal e alguem desconhecido.
+			if (shadow_chat == 17)
+			{
+				$("#dark_chat1").show();
+			}
+			if (shadow_chat == 28)
+			{
+				$("#dark_chat2").show();
+			}
+		});
+		
+		//animação da tabela do titulo do jogo
+		setInterval(setColor, 1000);
+		var a = 1;
+		function setColor() 
+		{
+			if (a == 1)
+			{				
+				setTimeout(myFunction1, 1000);
+				a = 2;
+			}
+			else if (a == 2)
+			{
+				setTimeout(myFunction2, 1000);
+				a = 3;
+			}
+			else if (a == 3)
+			{
+				setTimeout(myFunction3, 1000);
+				a = 4;
+			}
+			else if (a == 4)
+			{
+				setTimeout(myFunction4, 1000);
+				a = 1;
+			}
+		}	
+
+		//funções
+		function myFunction1() 
+		{
+			$("#title").css("background-color","#cc6600");
+		}
+		function myFunction2() 
+		{
+			$("#title").css("background-color","#993300");
+		}
+		function myFunction3() 
+		{
+			$("#title").css("background-color","#cc6600");
+		}
+		function myFunction4() 
+		{
+			$("#title").css("background-color","#ff9933");
+		}
+		
+		//vai tornar tudo normal
+		function myFunction5() 
+		{
+			$("body").animate({opacity: '1'});
+		}
+	});
+	</script>
+</head>
+<body>
+	<p id = "coment1">Tabela com o titulo do jogo</p>
+	<div>
+		<table id = "tabela2" border = "solid" size = 2 width="100%">
+			<tr id = "title">
+				<td>
+					<p align="center">Strike the Evil Souls</p>
+				</td>
+			</tr>
+		</table>
+	</div>
+	<div id = "intro">
+		<table><tr><td>
+			<p> Welcome to a Story were you has the player must find all the notes to get your memory back with only knowing your name and a rusted sword you must explore the dungeons to find materials to make better gear so you could find all the 50 notes</p>
+		</td></tr><tr><td id="td_add">
+			
+		</td></tr></table>
+	</div>
+	<div id = "dark_chat1">
+		<table align = "center" width="50%">
+			<tr>
+				<td>
+					<p>Hoppe: So ...</p>
+				</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>
+					<p>Hoppe: Who are you?</p>
+				</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>
+				</td>
+				<td>
+					<p>You don't need to know that! :Shadow</p>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<p>Hoppe: I don't trust you. You are the one that was watching me all this time!</p>
+				</td>
+				<td>					
+				</td>
+			</tr>
+		</table>
+	</div>
+	<p id = "coment2">Tabela Skill Tree</p>
+	<div id = "diversity"> 
+		<p> This game haves multiple skill trees that with enough time and experience you will be hable to make te most fufilling caracther ever made.</p>
+		<table id = "tabela1" border = "solid" size = 5 width="100%">
+			<tr id = "tr_title">
+				<td id = "td_title">
+					<p><b>Every skill tree must have some standard thats why we seperated trueth multiple categorys</p>
+				</td>				
+			</tr>
+			<tr>
+				<td>
+					<p><b>GROUP</b></p> 
+				</td>
+				<td>
+					<p><b>LINE</b></p>
+				</td>
+				<td>
+					<p><b>DREAM</b></p>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<p>weapons</p> 
+				</td>
+				<td>
+					<p>sword</p>
+				</td>
+				<td>
+					<p>swordsman</p>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<p>magic</p> 
+				</td>
+				<td>
+					<p>fire</p>
+				</td>
+				<td>
+					<p>Blazing Mage</p>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<p>crafting</p> 
+				</td>
+				<td>
+					<p>potions</p>
+				</td>
+				<td>
+					<p>Alchemist</p>
+				</td>
+			</tr>
+		</table>		
+	</div>
+	<div id = "dark_chat2">
+		<table align = "center" width="50%">
+			<tr>
+				<td>
+					<p>Hoppe: How could you do that!</p>
+				</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>					
+				</td>
+				<td>
+					<p>No one can stop me.:Shadow</p>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<p>Hoppe: I m gona stop you.
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<p>Hoppe: And I will save them all, and then you will need to face us!</p>
+				</td>
+				<td>					
+				</td>
+			</tr>
+			<tr>
+				<td>					
+				</td>
+				<td>
+					<p>Darkness will fall.:Shadow</p>
+				</td>
+			</tr>
+		</table>
+	</div>
+	<p id="instructions" align="center">click anywhere!</p>
+	<BR>
+	<div align = "center">
+		<button id="btn1">Shadow is approaching</button>
+	</div>
+</body>
+</html>
