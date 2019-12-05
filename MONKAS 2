@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Exercicio 3</title>
+	<script type = "text/javascript" src = "jquery.3.3.1.js"> </script>	
+	<script> 
+	$(document).ready(function(){
+		$("button").click(function(){
+			alert("Cor do fundo = " + $("p").css("background-color"))
+		})});
+	</script>
+</head>
+
+<body>	
+	<h2> Método CSS() - Retornar valor de propriedade </h2>
+	
+	<p style = "background-color; #daa520">Cor de fundo a devolver</p>
+	
+	<button>Devolve background-color de p</button>
+</body>
+</html>
